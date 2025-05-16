@@ -1,0 +1,26 @@
+package JavaInterviewQuesAndAns;
+
+public class ConvertToUppercaseAndLowercase {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+//		ASCII-> 65-90 ->UPPERCASE, 97-122->lowercase
+		
+		String input = "hello!, how are you?";
+		
+		char[] charArray = input.toCharArray();
+		
+		for(int i=0; i<input.length();i++) {
+			
+			if(charArray[i]>=97 && charArray[i]<=122)
+			{
+				charArray[i] = (char) (charArray[i]+32);
+			}
+			
+		}
+		
+		System.out.println(charArray);
+	}
+
+}

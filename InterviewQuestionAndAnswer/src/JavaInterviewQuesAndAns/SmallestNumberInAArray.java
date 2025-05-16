@@ -1,0 +1,59 @@
+package JavaInterviewQuesAndAns;
+
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
+public class SmallestNumberInAArray {
+
+	Integer givenArray[] = {5, 9, 4, 3, 1, 8, 2}; 
+	
+	
+	public void findSmallest()
+	{
+		int smallest = Integer.MAX_VALUE;
+//		int smallest = givenArray[0];
+		
+		for(int i=0; i<givenArray.length; i++)
+		{
+			if(givenArray[i]<smallest)
+			{
+				smallest = givenArray[i];
+			}
+		}
+		System.out.println(smallest);
+	}
+	
+	public void usingArrays() 
+	{
+		Arrays.sort(givenArray);
+		System.out.println("smallest number in the array is "+ givenArray[0]);
+//		to find highest--------------------------
+		System.out.println("highest number in the array is "+givenArray[(givenArray.length)-1]);
+		
+	}
+	
+	public void usingCollections() 
+	{
+		List<Integer> list = Arrays.asList(givenArray);
+		Collections.sort(list);
+		System.out.println("smallest number in the array is "+ list.getFirst());
+//		to find highest--------------------------
+		System.out.println("highest number in the array is "+ list.getLast());
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		SmallestNumberInAArray array = new SmallestNumberInAArray();
+//		array.findSmallest();
+//		array.usingArrays();
+		array.usingCollections();
+		
+		
+	}
+
+}

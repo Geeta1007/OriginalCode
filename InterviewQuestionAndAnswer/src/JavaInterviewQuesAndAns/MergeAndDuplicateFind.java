@@ -1,0 +1,42 @@
+package JavaInterviewQuesAndAns;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class MergeAndDuplicateFind {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int[] array1 = {1,5,4,3,8,7};
+		int[] array2 = {9,3,8,6,0,2,10};
+		
+		Set<Integer> seen = new HashSet<Integer>();
+		Set<Integer> duplicate = new HashSet<Integer>();
+		
+		for(Integer number : array1)
+		{
+			seen.add(number);
+		}
+		
+//		for(Integer number : array2)
+//		{
+//			if(seen.contains(number))
+//			{
+//				duplicate.add(number);
+//			}
+//		}
+		
+		for(Integer number : array2)
+		{
+			if(!seen.add(number))
+			{
+				duplicate.add(number);
+			}
+		}
+		
+		System.out.println("Duplicate numbers: " +duplicate);
+		System.out.println(seen);
+	}
+
+}

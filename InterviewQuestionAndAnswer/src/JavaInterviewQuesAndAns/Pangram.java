@@ -1,0 +1,34 @@
+package JavaInterviewQuesAndAns;
+
+import java.util.Arrays;
+import java.util.HashSet;
+
+public class Pangram {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String input = "akvdz";
+		input = input.toLowerCase();
+		input=input.replaceAll(" ", "");
+		
+		String[] array = input.split("");
+		
+		String[] alphabets = "abcdefghijklmnopqrstuvwxyz".split("");
+		
+		HashSet<String> userInput = new HashSet<String>();
+		for (String s : array) {
+			userInput.add(s);
+		}
+		
+		HashSet<String> alphabetSet = new HashSet<String>(Arrays.asList(alphabets));  //both HashSet are doing the same work
+		
+		alphabetSet.removeAll(userInput);
+		System.out.println(alphabetSet);
+		
+		
+		
+		
+	}
+
+}
