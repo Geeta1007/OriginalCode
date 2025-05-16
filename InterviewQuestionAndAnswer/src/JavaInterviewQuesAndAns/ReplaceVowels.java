@@ -21,7 +21,7 @@ public class ReplaceVowels {
 		}
 		System.out.println(array);
 		
-		String text = giventext.replaceAll("[AEIOUaeiou]", "//$");
+		String text = giventext.replaceAll("[AEIOUaeiou]", "\\$");
 		System.out.println(text);
 	}
 
