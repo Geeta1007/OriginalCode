@@ -15,7 +15,7 @@ public class AddNumbericvalueInAString {
 			
 			if(Character.isDigit(character))
 			{
-				sum=sum+input.charAt(i);
+				sum=sum+Character.getNumericValue(character);
 			}
 		}
 		System.out.println(sum);
