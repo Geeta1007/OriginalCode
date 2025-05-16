@@ -1,0 +1,148 @@
+
+public class Corejava4 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		//while loop
+		
+		int i=10;
+		while (i>0)
+		{
+			System.out.println(i);
+			i--;
+		}
+		
+		
+		//do while loop
+		
+		int j=50;
+		do
+		{
+			System.out.println(j);
+			j++;
+			
+		}while(j<60);
+		
+		System.out.println("*********************************************");
+		
+		//Nested loop
+		
+//		for (int k=1; k<=4; k++)
+//		{
+//			System.out.println("Its a outer loop start");
+//			
+//			for (int l=1; l<=2; l++)
+//			{
+//				System.out.println("Its a inner loop");
+//			}
+//			
+//			System.out.println("Its a outer loop end");
+//		}
+		
+//		1	2	3	4	 
+//		5	6	7	 
+//		8	9	 
+//		10
+		int u =1;
+		for (int o=0; o<4; o++)
+		{
+			for (int p=1; p<=4-o; p++)
+			{
+				System.out.print(u);
+				System.out.print("\t");
+				u++;
+				
+			}
+			System.out.println(" ");
+		}
+	//OR
+//		1	2	3	4	 
+//		5	6	7	 
+//		8	9	 
+//		10
+//	
+//		int q = 1;
+//		for (int y=1; y<=4; y++)
+//		{
+//			for (int z=4; z>=y; z--)
+//				
+//			{
+//				System.out.print(q);
+//				System.out.print("\t");
+//				q++;
+//			}
+//			System.out.println(" ");
+//		}
+		System.out.println("/////////////////////////////////////////////////////////////////////////////////////");
+//		1	 
+//		2	3	 
+//		4	5	6	 
+//		7	8	9	10
+//		
+//		int q = 1;
+//		for (int y=1; y<=4; y++)
+//		{
+//			for (int z=1; z<=y; z++)
+//				
+//			{
+//				System.out.print(q);
+//				System.out.print("\t");
+//				
+//				q++;
+//			
+//			}
+//			
+//			System.out.println(" ");
+//		}
+	System.out.println("/////////////////////////////////////////////////////////////////////////////////////");
+//	1	 
+//	1	2	 
+//	1	2	3	 
+//	1	2	3	4
+//		
+//		for (int y=1; y<=4; y++)
+//		{
+//			for (int z=1; z<=y; z++)
+//				
+//			{
+//				
+//				System.out.print(z);
+//				System.out.print("\t");
+//			
+//			}
+//			System.out.println(" ");
+//		}
+	System.out.println("/////////////////////////////////////////////////////////////////////////////////////");
+	
+//	3	 
+//	6	9	 
+//	12	15	18
+//	
+//		int a=1;
+//		for (int y=1; y<=3; y++)
+//		{
+//			for (int z=1; z<=y; z++)
+//				
+//			{
+//				int q = a*3;
+//				System.out.print(q);
+//				System.out.print("\t");
+//				a++;
+//				
+//			}
+//			
+//			System.out.println(" ");
+//		}
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}
