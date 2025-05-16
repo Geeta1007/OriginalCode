@@ -15,7 +15,7 @@ public class ConvertToUppercaseAndLowercase {
 			
 			if(charArray[i]>=97 && charArray[i]<=122)
 			{
-				charArray[i] = (char) (charArray[i]+32);
+				charArray[i] = (char) (charArray[i]-32);
 			}
 			
 		}
