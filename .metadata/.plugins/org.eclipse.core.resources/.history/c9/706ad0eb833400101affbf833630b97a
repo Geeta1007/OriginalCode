@@ -1,0 +1,50 @@
+package InterviewPerspectiveSel;
+
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Dummy {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+
+		WebDriver driver = new ChromeDriver();
+
+        driver.get("https://www.leafground.com/checkbox.xhtml");
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
+        // Open the dropdown menu
+        driver.findElement(By.xpath("//ul[@data-label='Cities']")).click();
+
+        // Wait for the dropdown options to be visible
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//li[contains(@class,'ui-selectcheckboxmenu-item')]")));
+
+        // List of cities to select
+        List<String> cityNeeded = List.of("London", "Berlin", "Amsterdam");
+
+        // Get all city options
+        List<WebElement> cityList = driver.findElements(By.xpath("//li[contains(@class,'ui-selectcheckboxmenu-item')]"));
+
+        // Iterate through the cities and select the matching ones
+        for (String city : cityNeeded) {
+            for (WebElement list : cityList) {
+                String cityValue = list.getAttribute("data-item-value");
+                if (cityValue != null && cityValue.equals(city)) {
+                    list.click();
+                    Thread.sleep(1000); // Optional: Add delay for visibility
+                    break;
+                }
+            }
+        }
+
+	}
+
+}

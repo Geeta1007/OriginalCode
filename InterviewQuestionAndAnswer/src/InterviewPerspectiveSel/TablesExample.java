@@ -1,0 +1,46 @@
+package InterviewPerspectiveSel;
+
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class TablesExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+//		NOT WORKING=================================================================================================
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.leafground.com/dynamicgrid.xhtml");
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		
+		List<WebElement> columns = driver.findElements(By.tagName("th"));
+		int columnCount = columns.size();
+		System.out.println("No.of columns: "+ columnCount);
+		
+		List<WebElement> rows = driver.findElements(By.xpath("//tr"));
+		int rowCount = rows.size();
+		System.out.println("No.of rows: " +rowCount);
+		
+		String name = "Misaki Murillo";
+		 System.out.println(driver.getPageSource());
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        try {
+			WebElement status = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//tr//td[@role='gridcell' and contains(text(), '"+name+"')]/following-sibling::td[2]")));
+			WebElement Activity = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//tr//td[@role='gridcell' and contains(text(), '"+name+"')]/following-sibling::td[3]")));
+			System.out.println(status.getText());
+			System.out.println(Activity.getText());
+		} catch (org.openqa.selenium.TimeoutException e) {
+			  System.err.println("Element not found: " + e.getMessage());
+		}
+		
+		
+	}
+
+}

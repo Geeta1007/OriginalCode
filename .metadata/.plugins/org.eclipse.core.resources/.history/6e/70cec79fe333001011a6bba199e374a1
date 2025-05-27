@@ -1,0 +1,91 @@
+package InterviewPerspectiveSel;
+
+import java.time.Duration;
+import java.util.List;
+import java.util.Random;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class DropDowns {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.leafground.com/select.xhtml");
+		/*WebElement dropdown1 = driver.findElement(By.className("ui-selectonemenu"));
+		Thread.sleep(1000);
+		Select select1 = new Select(dropdown1);
+		select1.selectByVisibleText("Selenium");
+		
+		driver.findElement(By.id("j_idt87:country")).click();
+		Thread.sleep(1000);
+		WebElement dropdown2 = driver.findElement(By.xpath("//ul[@id='j_idt87:country_items']/li[4]"));		
+		dropdown2.click();
+		
+//		Confirm Cities belongs to Country is loaded and handling StaleElementReferenceException
+		boolean result = false;
+		for (int i = 0; i < 2; i++) {
+			try {
+				driver.findElement(By.id("j_idt87:city_label")).click();
+				result = true;
+				break;
+			} catch (StaleElementReferenceException e) {
+				// TODO: handle exception
+			}
+		}
+		Thread.sleep(1000);
+		List<WebElement> listCities = driver.findElements(By.xpath("//ul[@id='j_idt87:city_items']/li"));
+		
+		int count=0;
+		for (WebElement webElement : listCities) {
+			count++;
+		}
+		if(count>0) {
+			System.out.println("Cities belongs to Country are loaded");
+		}
+		
+//		Choose the Course****************************************************************************
+		WebElement dropButton = driver.findElement(By.xpath("//span[@class='ui-button-icon-primary ui-icon ui-icon-triangle-1-s']"));
+		List<String> courseNeeded = List.of("AWS","Selenium WebDriver");
+		
+		for (String course : courseNeeded) {
+			dropButton.click();
+			Thread.sleep(1000);
+			List<WebElement> courseList = driver.findElements(By.xpath("//span[@id='j_idt87:auto-complete_panel']/ul/li"));
+			for (WebElement webElement : courseList) {
+				if ((webElement.getText().equals(course))) {
+					webElement.click();
+					Thread.sleep(1000);
+					break;
+				}
+			}
+		}*/
+		
+//		Choose language randomly
+		driver.findElement(By.id("j_idt87:lang_label")).click();
+		List<WebElement> langs = driver.findElements(By.xpath("//ul[@id='j_idt87:lang_items']/li"));
+		int langCount = (langs.size()-1)+1; 
+		// langs.size() - 1 reduces the range to exclude the last index. If the size is 5 (indices 0-4), it becomes 0-3
+		// Adding + 1 shifts the range to 1-4, effectively skipping index 0.
+		int randomValue = new Random().nextInt(langCount);
+//		driver.findElements(By.xpath("//ul[@id='j_idt87:lang_items']/li"+[randomValue]+"));
+		langs.get(randomValue).click();
+		
+//		Select 'Two' irrespective of the language chosen
+		driver.findElement(By.id("j_idt87:value_label")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//ul[@id='j_idt87:value_items']/li[2]")).click();
+		
+		
+	}
+
+}

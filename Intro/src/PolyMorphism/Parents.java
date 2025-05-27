@@ -13,7 +13,13 @@ public class Parents {
 		System.out.println("My son! Use my properties..!");
 	}
 	
+	public int addition(int a, int b) {
+		return a+b;
+	}
+	
 	public void Marrige() {
 		System.out.println("My son! Marry your uncle's daughter..!");
 	}
+	
+	
 }

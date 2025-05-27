@@ -1,3 +1,4 @@
+FrameworkDesign\PageObjects\RegistrationPage.class
 FrameworkDesign\AbsrtactComponents\AbstractComponent.class
 FrameworkDesign\PageObjects\CartPage.class
 FrameworkDesign\Resources\ExtentReporterNG.class

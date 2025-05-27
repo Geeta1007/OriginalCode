@@ -1,0 +1,22 @@
+package JavaInterviewQuesAndAns;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class FileReadUsingBufferedReader {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+
+		String location = "UsingBufferedWriter.txt";
+		String content = "Change is inevitable";
+		
+		FileWriter fileWriter = new FileWriter(location);
+		BufferedWriter writer = new BufferedWriter(fileWriter);
+		writer.write(content);
+		writer.close();
+		
+	}
+
+}

@@ -1,0 +1,21 @@
+package JavaInterviewQuesAndAns;
+
+public class Dummy {
+
+
+
+		
+		public void sayAboutAnimal() {
+			System.out.println("Animal name is ");
+		}
+		
+		public static void main(String[] args) {
+			// TODO Auto-generated method stub
+
+			ParameterizedConstructor animal = new ParameterizedConstructor("Duck", "Omnivores");
+			animal.sayAboutAnimal();
+			ParameterizedConstructor animal1 = new ParameterizedConstructor("Karadi", "Omnivores");
+			animal1.sayAboutAnimal();
+		}
+
+	}

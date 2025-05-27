@@ -1,0 +1,91 @@
+package InterviewPerspectiveSel;
+
+import java.time.Duration;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import org.jspecify.annotations.Nullable;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class HyperLinksExample {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.leafground.com/link.xhtml");
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3000));
+		
+//		Go to Dashboard
+		WebElement homePage = driver.findElement(By.linkText("Go to Dashboard"));
+		homePage.click();
+		driver.navigate().back();
+		
+//		Find the URL without clicking me.
+		WebElement withoutClicking = driver.findElement(By.partialLinkText("without clicking me."));
+		String where = withoutClicking.getDomAttribute("href");
+		System.out.println("This link is going to "+where);
+		
+//		Broken?
+		WebElement broken = driver.findElement(By.linkText("Broken?"));
+		broken.click();
+		String title = driver.getTitle();
+		if(title.contains("404")) {
+			System.out.println("The link is broken");
+		}else {
+			System.out.println("The link is not broken");
+		}
+		driver.navigate().back();
+		
+//		Duplicate Link
+		List<WebElement> totalLinks = driver.findElements(By.tagName("a"));
+		Set<String> uniqueLinks = new HashSet<>();
+		Set<String> duplicateLinks = new HashSet<>();
+		
+		for (WebElement link : totalLinks) {
+			String href = link.getDomAttribute("href");
+			if (href != null && !href.equals("#") && !uniqueLinks.add(href)) {
+				if (!duplicateLinks.contains(href)) {
+					System.out.println("Duplicate link is found : " + href);
+					duplicateLinks.add(href);
+				}
+			}
+		}
+		if(duplicateLinks.isEmpty()) {
+			System.out.println("Duplicate link is not found");
+		}
+
+//		Count Links
+		WebElement countLink = driver.findElement(By.linkText("How many links in this page?"));
+		countLink.click();
+		List<WebElement> countLinks = driver.findElements(By.tagName("a"));
+		int count = countLinks.size();
+		System.out.println(count);
+		driver.navigate().back();
+		
+//		Count Layout Links
+		WebElement layoutLink = driver.findElement(By.linkText("How many links in this layout?"));
+		layoutLink.click();
+		List<WebElement> cssLinks = driver.findElements(By.xpath("//link[@rel='stylesheet']"));
+
+        // Count scripts
+        List<WebElement> jsLinks = driver.findElements(By.tagName("script"));
+
+        // Count image links
+        List<WebElement> imageLinks = driver.findElements(By.tagName("img"));
+
+        System.out.println("Number of CSS stylesheets: " + cssLinks.size());
+        System.out.println("Number of JS scripts: " + jsLinks.size());
+        System.out.println("Number of images: " + imageLinks.size());
+
+        int totalLayoutLinks = cssLinks.size() + jsLinks.size() + imageLinks.size();
+        System.out.println("Total layout-related resources: " + totalLayoutLinks);
+		
+		driver.quit();
+	}
+
+}

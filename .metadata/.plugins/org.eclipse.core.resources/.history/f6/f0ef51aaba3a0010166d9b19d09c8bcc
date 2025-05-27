@@ -1,0 +1,58 @@
+package ExtentReports.ExtentReportsExample;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class ExtentReportsDemo {
+
+	WebDriver driver;
+	
+	@BeforeTest
+	public void launchBrowser() {
+		driver = new ChromeDriver();
+	}
+	
+	@AfterTest
+	public void tearDown() {
+		driver.close();
+	}
+	
+	@Test
+	public void openGoogle() {
+		driver.get("https://www.google.com/");
+		String title = driver.getTitle();
+		if(title.equals("Google")) {
+			System.out.println("Google Passed");
+		}else {
+			System.out.println("Google Failed");
+		}
+	}
+	
+	@Test
+	public void openBing() {
+		driver.get("https://www.bing.com/");
+		String title = driver.getTitle();
+		System.out.println(title);
+		if(title.equals("Search - Microsoft Bing")) {
+			System.out.println("bing Passed");
+		}else {
+			System.out.println("bing Failed");
+		}
+	}
+	
+	@Test
+	public void openWikipedia() {
+		driver.get("https://www.wikipedia.org/");
+		String title = driver.getTitle();
+		if(title.equals("Wikipedia")) {
+			System.out.println("Wiki Passed");
+		}else {
+			System.out.println("Wiki Failed");
+		}
+	}
+	
+	
+}

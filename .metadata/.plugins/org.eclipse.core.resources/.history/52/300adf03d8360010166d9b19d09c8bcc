@@ -1,0 +1,43 @@
+package JXLExample;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+public class Login {
+
+	String[][] data = {
+			
+			{"Geeta@gmail.com", "Pass@1007"},
+			{"Geetha@gmail.com", "Pashs@1007"},
+			{"Geeta@gmail.com", "Pashs@1007"},
+			{"Geehta@gmail.com", "Pass@1007"},
+					
+	};
+	
+	@DataProvider(name="loginData")
+	public String[][] loginDataProvider() {
+		return data;
+	}
+	
+	@Test(dataProvider = "loginData")
+	public void BothCorrectLogin(String uName, String pWord) {
+		
+		WebDriver driver= new ChromeDriver();
+		driver.get("https://rahulshettyacademy.com/client/");
+		
+		WebElement username = driver.findElement(By.id("userEmail"));
+		WebElement password = driver.findElement(By.id("userPassword"));
+		WebElement login  = driver.findElement(By.id("login"));
+		
+		username.sendKeys(uName);
+		password.sendKeys(pWord);
+		login.click();
+		
+	}
+
+}

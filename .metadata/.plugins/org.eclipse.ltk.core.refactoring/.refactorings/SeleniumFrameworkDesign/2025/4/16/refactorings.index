@@ -1,0 +1,25 @@
+1744781923609	Delete element
+1744781980293	Delete element
+1744809839652	Rename package 'FrameworkDesign'
+1744872853258	Copy compilation unit
+1744872860656	Delete element
+1744872873026	Copy compilation unit
+1744872925221	Copy compilation unit
+1744874949848	Rename package 'AbsrtactComponent'
+1744878251615	Copy compilation unit
+1744878256281	Delete element
+1744878266573	Rename type 'StandAloneTestPurposeTemp'
+1744894205239	Rename type 'CheckoutPage'
+1744975691068	Rename type 'StandAloneTestPurpose'
+1744975970349	Rename package 'TestComponent'
+1744976061588	Rename package 'FrameworkDesign'
+1744976081417	Rename package 'TestComponents'
+1744979066076	Rename package 'AbsrtactComponents'
+1744979073327	Rename package 'PageObjects'
+1745040313958	Copy compilation unit
+1745043364877	Rename type 'ErrorValidation'
+1745055796972	Copy package
+1745055802892	Delete element
+1745055822608	Move 'testng.xml' to 'TestNgXML'
+1745055842897	Copy file
+1745059096569	Copy file

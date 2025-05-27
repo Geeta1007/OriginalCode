@@ -1,0 +1,19 @@
+package JavaInterviewQuesAndAns;
+
+public class SwitchCase {
+
+	String hero = "Captain America";
+	
+	public void heroOrNot() {
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		
+	}
+
+}

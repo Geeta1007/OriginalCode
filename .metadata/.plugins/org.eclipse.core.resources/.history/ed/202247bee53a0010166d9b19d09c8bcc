@@ -1,0 +1,45 @@
+package ExtentReportsExample;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.io.FileHandler;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
+public class GoogleTest {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+
+		ExtentReports extentReport = new ExtentReports();
+		ExtentSparkReporter sparkReporter = new ExtentSparkReporter("EntentReport.html");
+		extentReport.attachReporter(sparkReporter);
+		ExtentTest testcase=extentReport.createTest("Verify Google title");
+		testcase.log(Status.INFO, "Navigating to Google");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.google.com/");
+		String title = driver.getTitle();
+		testcase.log(Status.INFO, "Expected title is "+title);
+		testcase.log(Status.INFO, "Actual title is Google");
+		testcase.log(Status.INFO, "Verification of actual and expected title");
+		if(title.equals("Googles")) {
+			testcase.log(Status.PASS, "Actual and expected title are same");
+		}else {
+			testcase.log(Status.FAIL, "Actual and expected title are not same");
+			TakesScreenshot screenshot = (TakesScreenshot) driver;
+			File sourceFile = screenshot.getScreenshotAs(OutputType.FILE);
+			File destinationFile = new File("googleError.png");
+			FileHandler.copy(sourceFile, destinationFile);
+			testcase.addScreenCaptureFromPath("googleError.png");
+	}
+
+}
+}

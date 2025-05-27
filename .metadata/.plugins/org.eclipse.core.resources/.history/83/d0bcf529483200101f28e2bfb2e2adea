@@ -1,0 +1,50 @@
+package JavaConcepts;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class JDBCconnection {
+
+	public static void main(String[] args) throws SQLException {
+		// TODO Auto-generated method stub
+
+		String host = "localhost";
+		String port = "3306";
+		
+		Connection con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port +"/qadbt", "root", "Geetest@1007");
+	
+		Statement s = con.createStatement();
+		
+		ResultSet rs = s.executeQuery("select * from EmployeeInfo where name ='Hyati'");
+		rs.next();
+		
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://login.salesforce.com/");
+		System.out.println(rs.getString("Location"));
+		System.out.println(rs.getString("age"));
+		System.out.println(rs.getString("username"));
+		System.out.println(rs.getString("password"));
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+		
+		driver.findElement(By.cssSelector(".usernamelabel")).sendKeys(rs.getString("username"));
+		driver.findElement(By.id("password")).sendKeys(rs.getString("password"));
+	
+		
+		
+		
+		
+	}
+
+}
+
+

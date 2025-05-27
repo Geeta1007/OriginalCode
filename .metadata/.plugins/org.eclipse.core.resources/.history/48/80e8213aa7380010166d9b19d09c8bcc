@@ -1,0 +1,27 @@
+package InterviewPerspectiveSel;
+
+import java.io.IOException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FileUploadDownloadUsingAutoIt {
+
+	public static void main(String[] args) throws InterruptedException, IOException {
+		// TODO Auto-generated method stub
+
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.leafground.com/file.xhtml");
+				
+		
+		WebElement uploadLink = driver.findElement(By.xpath("//span[contains(@class,'ui-button ui-widget')][1]"));
+		uploadLink.click();
+		Thread.sleep(3000);
+		Runtime.getRuntime().exec("C:\\Users\\mahes\\OneDrive\\Documents\\Check\\fileupload.exe");
+		
+		
+	}
+
+}

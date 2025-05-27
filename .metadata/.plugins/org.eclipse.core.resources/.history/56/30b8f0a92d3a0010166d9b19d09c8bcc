@@ -1,0 +1,30 @@
+package JavaInterviewQuesAndAns;
+
+import java.util.Scanner;
+
+public class ReverseNumbers {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int given = 0;
+		int reversedNumber = 0;
+		
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter your number: ");
+		given = scanner.nextInt();
+		
+		while(given!=0)
+		{
+		reversedNumber = reversedNumber*10;
+		reversedNumber = reversedNumber+given%10;
+		given = given/10;
+		}
+				
+		System.out.println(given);
+		System.out.println(reversedNumber);
+		
+	}
+
+}
+

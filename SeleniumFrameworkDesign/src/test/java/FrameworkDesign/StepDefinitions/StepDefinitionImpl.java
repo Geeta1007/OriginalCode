@@ -57,6 +57,7 @@ public class StepDefinitionImpl extends BaseTest{
 	}
 
 	 @Then ("{string} message is displayed on the confirmationPage")
+//	 @Then("^\"([^\"]*)\" message is displayed on the confirmationPage$")
 	 public void message_displayed_confimationPage(String string)
 	 {
 		boolean orderMsg = confirmationPage.orderSuccessMessage(string);

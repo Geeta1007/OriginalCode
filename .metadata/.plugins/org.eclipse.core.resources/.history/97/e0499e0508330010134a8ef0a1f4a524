@@ -1,0 +1,16 @@
+package InterviewPerspectiveSel;
+
+import org.testng.annotations.Test;
+
+public class DependsOnFail {
+
+	@Test
+	public void parentsPermission() {
+		System.out.println("Permission given");
+	}
+	
+	@Test(dependsOnMethods = "parentsPermission")
+	public void loveMarriage() {
+		System.out.println("marriage happened");
+	}
+}

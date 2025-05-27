@@ -1,0 +1,51 @@
+package InterviewPerspectiveSel;
+
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.List;
+
+import org.jspecify.annotations.Nullable;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class BrokenImage {
+
+	public static void main(String[] args) throws MalformedURLException, IOException {
+		// TODO Auto-generated method stub
+
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://rahulshettyacademy.com/");
+
+		List<WebElement> images = driver.findElements(By.tagName("img"));
+//		WebElement brokenImage = driver.findElement(By.xpath("//img[@class='broken-img']"));
+
+		for (WebElement image : images) {
+			String imageSrc = image.getDomAttribute("src");
+		try {
+				URL url = new URL(imageSrc);
+				URLConnection urlConnection = url.openConnection();
+				HttpURLConnection httpURLConnection = (HttpURLConnection) urlConnection;
+				httpURLConnection.setConnectTimeout(5000);
+				httpURLConnection.connect();
+
+				if (httpURLConnection.getResponseCode() == 200)
+					System.out.println(imageSrc + " >> " + httpURLConnection.getResponseCode() + " >> "
+							+ httpURLConnection.getResponseMessage());
+				else 
+					System.err.println(imageSrc + " >> " + httpURLConnection.getResponseCode() + " >> "
+							+ httpURLConnection.getResponseMessage());
+				httpURLConnection.disconnect();
+		} catch (MalformedURLException e) {
+
+			System.err.println(imageSrc);
+		} 
+	}
+
+	}
+}

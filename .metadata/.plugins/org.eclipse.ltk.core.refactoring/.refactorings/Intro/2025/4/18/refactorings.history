@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;EcommerceCartEffOne.java&apos; to &apos;Intro/src/Selenium&apos;&#x0D;&#x0A;- Original project: &apos;Intro&apos;&#x0D;&#x0A;- Destination element: &apos;Intro/src/Selenium&apos;&#x0D;&#x0A;- Original element: &apos;Selenium.EcommerceCartEffOne.java&apos;" description="Copy compilation unit" destination="/src=/optional=/true=/=/maven.pomderived=/true=/&lt;Selenium" element1="/src=/optional=/true=/=/maven.pomderived=/true=/&lt;Selenium{EcommerceCartEffOne.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1745997301997" units="1" version="1.0"/>
+</session>

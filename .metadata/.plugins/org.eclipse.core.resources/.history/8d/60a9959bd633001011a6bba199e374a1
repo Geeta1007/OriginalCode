@@ -1,0 +1,30 @@
+package InterviewPerspectiveSel;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class DropDowns {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.leafground.com/select.xhtml");
+		WebElement dropdown1 = driver.findElement(By.className("ui-selectonemenu"));
+		Thread.sleep(2000);
+		Select select1 = new Select(dropdown1);
+		select1.selectByVisibleText("Selenium");
+		
+		WebElement dropdown2 = driver.findElement(By.id("j_idt87:country"));
+		Thread.sleep(2000);
+		Select select2 = new Select(dropdown2);
+		select2.selectByIndex(3);
+		
+		
+		
+	}
+
+}

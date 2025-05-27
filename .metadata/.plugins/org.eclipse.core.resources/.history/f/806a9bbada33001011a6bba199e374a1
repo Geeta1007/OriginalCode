@@ -1,0 +1,54 @@
+package InterviewPerspectiveSel;
+
+import java.util.Iterator;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class DropDowns {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.leafground.com/select.xhtml");
+		WebElement dropdown1 = driver.findElement(By.className("ui-selectonemenu"));
+		Thread.sleep(1000);
+		Select select1 = new Select(dropdown1);
+		select1.selectByVisibleText("Selenium");
+		
+		driver.findElement(By.id("j_idt87:country")).click();
+		Thread.sleep(1000);
+		WebElement dropdown2 = driver.findElement(By.xpath("//ul[@id='j_idt87:country_items']/li[4]"));		
+		dropdown2.click();
+		
+//		Confirm Cities belongs to Country is loaded and handling StaleElementReferenceException
+		boolean result = false;
+		for(int i=0; i<3; i++) {
+		try {
+			driver.findElement(By.id("j_idt87:city_label")).click();
+			result = true;
+			break;
+		} catch (StaleElementReferenceException e) {
+			// TODO: handle exception
+		}
+		}
+		Thread.sleep(1000);
+		List<WebElement> listCities = driver.findElements(By.xpath("//ul[@id='j_idt87:city_items']/li"));
+		
+		Iterator iterator = listCities.iterator();
+		int count=0;
+		for (WebElement webElement : listCities) {
+			count++;
+		}
+		if(count>0) {
+			System.out.println("Cities belongs to Country are loaded");
+		}
+	}
+
+}

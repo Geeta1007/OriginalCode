@@ -1,0 +1,84 @@
+package InterviewPerspectiveSel;
+
+import java.time.Duration;
+import java.util.Iterator;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class WindowsHandling {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		WebDriver driver = new ChromeDriver();
+        driver.get("https://www.leafground.com/window.xhtml");
+//        WebElement open = driver.findElement(By.xpath("//h5[contains(text(),'Click and Confirm new Window Opens')]/following::button/span[@class='ui-button-text ui-c' and text()='Open']"));
+//        open.click();
+//        Click and Confirm new Window Opens
+//        Set<String> handles = driver.getWindowHandles();
+//        Iterator<String> iterator = handles.iterator();
+//        String parentID = iterator.next();
+//        String childID = iterator.next();
+//        driver.switchTo().window(childID);
+//        System.out.println(driver.getTitle());
+//        driver.close();
+//        driver.switchTo().window(parentID);
+//        System.out.println(driver.getTitle());
+        
+//        Find the number of opened tabs and get their title
+//        WebElement numberOfTabs = driver.findElement(By.xpath("//h5[contains(text(),'Find the number of opened tabs')]/following::button/span[@class='ui-button-text ui-c' and text()='Open Multiple']"));
+//        numberOfTabs.click();
+//        Set<String> handles1 = driver.getWindowHandles();
+//        Iterator<String> iterator1 = handles1.iterator();
+//        System.out.println(handles1.size());
+//        String parentID1 = iterator1.next();
+//        while(iterator1.hasNext()) {
+//        	String childID1 = iterator1.next();
+//        	 driver.switchTo().window(childID1);
+//        	 System.out.println(driver.getTitle());
+//        }
+//        driver.switchTo().window(parentID1);
+//        driver.quit();
+        
+//        Close all windows except Primary
+//		WebElement closeWindow = driver.findElement(By.xpath(
+//				"//h5[contains(text(),'Close all windows except Primary')]/following::button/span[@class='ui-button-text ui-c' and text()='Close Windows']"));
+//		closeWindow.click();
+//		Set<String> handles2 = driver.getWindowHandles();
+//		Iterator<String> iterator2 = handles2.iterator();
+//		System.out.println(handles2.size());
+//		String parentID2 = iterator2.next();
+//		while (iterator2.hasNext()) {
+//			String childID2 = iterator2.next();
+//			driver.switchTo().window(childID2);
+//			System.out.println(driver.getTitle());
+//			driver.close();
+//
+//		}
+		
+//		Wait for 2 new tabs to open
+		WebElement waitWindow = driver.findElement(By.xpath(
+				"//h5[contains(text(),'Wait for 2 new tabs to open')]/following::button/span[@class='ui-button-text ui-c' and text()='Open with delay']"));
+		waitWindow.click();
+		int expectedTabs = 2;
+		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		try {
+		wait.until(d -> d.getWindowHandles().size() == expectedTabs);
+		System.out.println("New tabs opened successfully");
+		}
+		catch (Exception e) {
+			System.out.println("Timeout waiting for new tabs to open.");
+		}
+		finally {
+			System.out.println("in finally");
+			driver.quit();
+		}
+	}
+
+}

@@ -1,0 +1,73 @@
+package InterviewPerspectiveSel;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
+
+import static org.openqa.selenium.support.locators.RelativeLocator.*;
+
+public class MiscInterviewQues {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+
+//		 Checking tab enabled or not
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.leafground.com/input.xhtml");
+		driver.findElement(By.id("j_idt88:j_idt91")).sendKeys(" India");
+		boolean enabled= driver.findElement(By.id("j_idt88:j_idt93")).isEnabled();
+		System.out.println(enabled);
+		
+//		Retrieve the sentence present in the box
+		System.out.println(driver.findElement(By.id("j_idt88:j_idt97")).getDomAttribute("value"));
+		
+//		Type email and Tab. Confirm control moved to next element.
+		driver.findElement(By.id("j_idt88:j_idt99")).sendKeys("test@gmail.com"+Keys.TAB);
+		String verifyText = driver.findElement(By.id("j_idt88:j_idt101")).getDomAttribute("placeholder");
+		System.out.println(verifyText);
+		Assert.assertEquals(verifyText, "About yourself");
+		
+//		Just Press Enter and confirm error message*
+		driver.findElement(By.name("j_idt106:thisform:age")).sendKeys(Keys.ENTER);
+		Thread.sleep(2000);
+		String errorMessage = driver.findElement(By.xpath("//span[text()='Age is mandatory']")).getText();
+		System.out.println(errorMessage);
+		Assert.assertEquals(errorMessage, "Age is mandatory");
+
+//		Click and Confirm Label Position Changes*****************
+		WebElement checkBox = driver.findElement(By.id("j_idt106:float-input"));
+		checkBox.click();
+		Thread.sleep(2000);
+		String usernameText = driver.findElement(with(By.tagName("label")).above(checkBox)).getText();
+		System.out.println(usernameText);
+		
+//		Type your name and choose the third option
+		driver.findElement(By.id("j_idt106:auto-complete_input")).sendKeys("gee");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//ul[contains(@class, 'ui-widget-content')]/li[3]")).click();
+		
+//		Type number and spin to confirm value changed
+		WebElement spinBox = driver.findElement(By.id("j_idt106:j_idt118_input"));
+		spinBox.sendKeys("5");
+		driver.findElement(By.xpath("//span[@id='j_idt106:j_idt118']/a[1]")).click();
+		String number = spinBox.getDomAttribute("aria-valuenow");
+		System.out.println(number);
+		Assert.assertNotEquals(number, "5");
+		
+//		Click and Confirm Keyboard appears
+//		driver.findElement(By.id("j_idt106:j_idt122")).click();
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

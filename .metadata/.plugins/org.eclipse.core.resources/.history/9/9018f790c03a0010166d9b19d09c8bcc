@@ -1,0 +1,87 @@
+package ExtentReports.ExtentReportsExample;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
+public class ExtentReportsDemo {
+
+	WebDriver driver;
+	ExtentReports extentReporter;
+	ExtentSparkReporter sparkReporter;
+	ExtentTest testcase;
+	
+	@BeforeSuite
+	public void launchBrowser() {
+		extentReporter = new ExtentReports();
+		sparkReporter = new ExtentSparkReporter("EntentReport.html");
+		extentReporter.attachReporter(sparkReporter);
+		extentReporter.setSystemInfo("Tester", "Geeta D");
+		sparkReporter.config().setReportName("Automation Results using ExtentReports");
+		sparkReporter.config().setDocumentTitle("TEst Results");
+		driver = new ChromeDriver();
+	}
+	
+	@AfterSuite
+	public void tearDown() {
+		extentReporter.flush();
+		driver.quit();
+	}
+	
+	@Test
+	public void openGoogle() {
+		testcase=extentReporter.createTest("Verify Google title");
+		testcase.log(Status.INFO, "Navigating to Google");
+		driver.get("https://www.google.com/");
+		String title = driver.getTitle();
+		testcase.log(Status.INFO, "Expected title is "+title);
+		testcase.log(Status.INFO, "Actual title is Google");
+		testcase.log(Status.INFO, "Verification of actual and expected title");
+		if(title.equals("Google")) {
+			testcase.log(Status.PASS, "Actual and expected title are same");
+		}else {
+			testcase.log(Status.FAIL, "Actual and expected title are not same");
+		}
+	}
+	
+	@Test
+	public void openBing() {
+		testcase=extentReporter.createTest("Verify Bing title");
+		testcase.log(Status.INFO, "Navigating to Bing");
+		driver.get("https://www.bing.com/");
+		String title = driver.getTitle();
+		testcase.log(Status.INFO, "Expected title is "+title);
+		testcase.log(Status.INFO, "Actual title is Search - Microsoft Bing");
+		testcase.log(Status.INFO, "Verification of actual and expected title");
+		if(title.equals(" Bing")) {
+			testcase.log(Status.PASS, "Actual and expected title are same");
+		}else {
+			testcase.log(Status.FAIL, "Actual and expected title are not same");
+		}
+	}
+	
+	@Test
+	public void openWikipedia() {
+		testcase=extentReporter.createTest("Verify Wikipedia title");
+		testcase.log(Status.INFO, "Navigating to Wikipedia");
+		driver.get("https://www.wikipedia.org/");
+		String title = driver.getTitle();
+		testcase.log(Status.INFO, "Expected title is "+title);
+		testcase.log(Status.INFO, "Actual title is Wikipedia");
+		testcase.log(Status.INFO, "Verification of actual and expected title");
+		if(title.equals("Wikipedia")) {
+			testcase.log(Status.PASS, "Actual and expected title are same");
+		}else {
+			testcase.log(Status.FAIL, "Actual and expected title are not same");
+		}
+	}
+	
+	
+}

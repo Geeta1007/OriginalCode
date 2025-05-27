@@ -1,0 +1,17 @@
+package JavaInterviewQuesAndAns;
+
+public class DefaultConstractor {
+
+	String student_name;
+	
+//	/-------------------Default constructor------------------/
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		DefaultConstractor constractor = new DefaultConstractor();
+		System.out.println(constractor.student_name);
+	}
+
+}

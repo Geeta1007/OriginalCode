@@ -1,0 +1,30 @@
+package InterviewPerspectiveSel;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ScrollUpAndDown {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://echoecho.com/htmlforms11.htm");
+		driver.manage().window().maximize();
+		
+//		using JavaScriptexecutor----------------------------
+//		scroll to some position------------------------------------
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
+//		executor.executeScript("window.scroll(0,450)", "");
+//		Thread.sleep(2000);
+//		executor.executeScript("window.scroll(0,-450)", "");
+		
+//		scroll to bottom of the page--------------------------------------------
+		executor.executeScript("window.scroll(0, document.body.scrollHeight)", "");
+		Thread.sleep(2000);
+		executor.executeScript("window.scroll(0, 0)", "");
+		
+	}
+
+}

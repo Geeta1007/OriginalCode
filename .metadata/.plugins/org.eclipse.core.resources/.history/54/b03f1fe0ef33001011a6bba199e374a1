@@ -1,0 +1,39 @@
+package InterviewPerspectiveSel;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class RadioButton {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.leafground.com/radio.xhtml");
+		driver.findElement(By.xpath("//h5[contains(text(),'Your most favorite browser')]/following-sibling::div//label[text()='Chrome']")).click();
+		
+		driver.findElement(By.xpath("//h5[contains(text(), 'UnSelectable')]/following-sibling::div//label[text()='Bengaluru']")).click();
+		driver.findElement(By.xpath("//h5[contains(text(), 'UnSelectable')]/following-sibling::div//label[text()='Bengaluru']")).click();
+		
+		WebElement chrome = driver.findElement(By.xpath("//h5[contains(text(), 'Find the default select radio button')]/following-sibling::div//label[text()='Chrome']"));
+		WebElement fireFox = driver.findElement(By.xpath("//h5[contains(text(), 'Find the default select radio button')]/following-sibling::div//label[text()='Firefox']"));
+		WebElement safari = driver.findElement(By.xpath("//h5[contains(text(), 'Find the default select radio button')]/following-sibling::div//label[text()='Safari']"));
+		WebElement edge = driver.findElement(By.xpath("//h5[contains(text(), 'Find the default select radio button')]/following-sibling::div//label[text()='Edge']"));
+		
+		if(chrome.isSelected()) {
+			System.out.println("chrome is selected");
+		}
+		if(fireFox.isSelected()) {
+			System.out.println("Firefox is selected");
+		}
+		if(safari.isSelected()) {
+			System.out.println("Safari is selected");
+		}
+		if(edge.isSelected()){
+			System.out.println("Edge is selected");
+		}
+	}
+
+}

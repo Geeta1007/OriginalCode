@@ -1,0 +1,8 @@
+2025-05-21 17:42:04,696 INFO  [Log4jXMLConfiguratorExample] This is a Info message 
+2025-05-21 17:42:04,697 WARN  [Log4jXMLConfiguratorExample] This is a Warn message 
+2025-05-21 17:42:04,697 ERROR [Log4jXMLConfiguratorExample] This is a Error message 
+2025-05-21 17:42:04,697 FATAL [Log4jXMLConfiguratorExample] This is a Fatal message 
+2025-05-23 18:13:01,288 INFO  [Log4jXMLConfiguratorExample] This is a Info message 
+2025-05-23 18:13:01,288 WARN  [Log4jXMLConfiguratorExample] This is a Warn message 
+2025-05-23 18:13:01,288 ERROR [Log4jXMLConfiguratorExample] This is a Error message 
+2025-05-23 18:13:01,288 FATAL [Log4jXMLConfiguratorExample] This is a Fatal message 

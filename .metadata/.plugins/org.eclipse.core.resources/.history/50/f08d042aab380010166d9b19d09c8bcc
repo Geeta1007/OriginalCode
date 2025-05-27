@@ -1,0 +1,80 @@
+package JXLExample;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import jxl.Sheet;
+import jxl.Workbook;
+import jxl.read.biff.BiffException;
+
+public class DataDrivenJXL2 {
+
+	String[][] data = null;
+	WebDriver driver;
+	
+	@DataProvider(name="loginData")
+	public String[][] loginDataProvider() throws BiffException, IOException {
+		data=getExcelData();
+		return data;
+	}
+	
+	@BeforeMethod
+	public void beforeTest() {
+		driver= new ChromeDriver();
+		
+	}
+	
+	@AfterMethod
+	public void afterTest() {
+		driver.quit();
+	}
+	
+	public String[][] getExcelData() throws BiffException, IOException {
+		
+		FileInputStream fileInputStream = new FileInputStream("C:\\Users\\mahes\\TestData2.xls");
+		Workbook workbook =Workbook.getWorkbook(fileInputStream);
+		Sheet sheet =workbook.getSheet(0);
+		int rowCount = sheet.getRows();
+		int columnCount = sheet.getColumns();
+
+		int startRow = 12;
+		int startCol = 5;
+		
+		int rowsToRead = rowCount - startRow;
+		int colsToRead = columnCount - startCol;
+
+		String[][] testData = new String[rowsToRead][colsToRead];
+
+		for (int i = startRow; i < rowCount; i++) {
+		    for (int j = startCol; j < columnCount; j++) {
+		        testData[i - startRow][j - startCol] = sheet.getCell(j, i).getContents();
+		    }
+		}
+			return testData;
+			
+	}
+	
+	@Test(dataProvider = "loginData")
+	public void BothCorrectLogin(String uName, String pWord) {
+		
+		driver.get("https://rahulshettyacademy.com/client/");
+		WebElement username = driver.findElement(By.id("userEmail"));
+		WebElement password = driver.findElement(By.id("userPassword"));
+		WebElement login  = driver.findElement(By.id("login"));
+		
+		username.sendKeys(uName);
+		password.sendKeys(pWord);
+		login.click();
+		
+	}
+
+}

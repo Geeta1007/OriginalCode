@@ -1,0 +1,22 @@
+package InterviewPerspectiveSel;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class RerunFailedTestCase {
+	
+	
+//	1. manually rerun testng failed testcase under test output folder
+//	2. using IRetryAnalyzer
+//	3. using IAnnotationTransformer
+	
+		@Test(retryAnalyzer=RetryListener.class)
+		public void testCase1() {
+			Assert.assertEquals(false, true);
+		}
+		
+		@Test
+		public void testCase2() {
+			Assert.assertEquals(false, true);
+		}
+	}

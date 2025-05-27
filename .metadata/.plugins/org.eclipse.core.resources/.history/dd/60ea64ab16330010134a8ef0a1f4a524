@@ -1,0 +1,18 @@
+package JavaInterviewQuesAndAns;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class FileReadUsingReadString {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+
+		String location = "UsingBufferedWriter.txt";
+		
+		String content = Files.readString(Paths.get(location));
+		System.out.println(content);
+	}
+
+}

@@ -1,0 +1,26 @@
+package LoginApachePOI;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class DataDrivenApachePOI {
+
+	static WebDriver driver;
+	
+	
+	public void readExcel() throws FileNotFoundException {
+		
+		FileInputStream fileInputStream = new FileInputStream("C:\\Users\\mahes\\TestDataApache.xlsx");
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		driver= new ChromeDriver();
+		driver.get("https://rahulshettyacademy.com/client/");
+	}
+
+}

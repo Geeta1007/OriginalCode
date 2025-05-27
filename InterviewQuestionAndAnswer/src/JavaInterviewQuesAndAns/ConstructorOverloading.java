@@ -1,0 +1,24 @@
+package JavaInterviewQuesAndAns;
+
+public class ConstructorOverloading {
+
+	String draw;
+	
+	ConstructorOverloading(){
+		System.err.println("ConstructorOverloading object is created");
+	}
+	
+	ConstructorOverloading(String toDraw){
+		draw = toDraw;
+		System.out.println("Drawing "+draw);
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		ConstructorOverloading overloading = new ConstructorOverloading();
+		ConstructorOverloading overloading1 = new ConstructorOverloading("Peacock");
+		
+	}
+
+}

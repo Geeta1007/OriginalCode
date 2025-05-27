@@ -1,0 +1,11 @@
+package moveGit;
+
+public class Chumma {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.out.println("En neram");
+	}
+
+}

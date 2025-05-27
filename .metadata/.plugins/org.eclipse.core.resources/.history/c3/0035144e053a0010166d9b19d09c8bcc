@@ -1,0 +1,13 @@
+package JavaInterviewQuesAndAns;
+
+public class Dummy {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		StringBuilder sb = new StringBuilder("abcd");
+        System.out.println("Default capacity: " + sb.capacity());
+		
+	}
+
+}

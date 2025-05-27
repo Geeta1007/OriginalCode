@@ -1,0 +1,33 @@
+package JavaConceptsAndInterviewQues;
+
+public class RemoveLeadingAndTrailingSpaces {
+
+	String given = " Hello Dey!! ";
+	
+	public void usingTrim()
+	{
+		System.out.println(given.trim());
+	}
+	
+	public void usingStrip()
+	{
+		System.out.println(given.strip());
+		System.out.println(given.stripLeading());
+		System.out.println(given.stripTrailing());
+	}
+	
+	public void usingRegex()
+	{
+		System.out.println(given.replaceAll("^[ \t]+|[ \t]+$", ""));
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		RemoveLeadingAndTrailingSpaces input = new RemoveLeadingAndTrailingSpaces();
+//		input.usingTrim();
+//		input.usingStrip();
+		input.usingRegex();
+	}
+
+}

@@ -1,0 +1,28 @@
+package Log4JExample;
+
+import org.apache.logging.log4j.core.Logger;
+
+public class BasicConfiguratorExample {
+
+	
+	static Logger logger = Logger.get
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		
+		This is a Debug message
+		This is a Info message
+		This is a Warn message
+		This is a Error message
+		This is a Fatal message
+	}
+
+}
+//@AfterSuite
+//public void closeBrowser(){
+//    driver.quit();
+//    endTime   = System.currentTimeMillis();
+//    totalTime = endTime - startTime;
+//    System.out.println(totalTime/1000.0+" seconds");

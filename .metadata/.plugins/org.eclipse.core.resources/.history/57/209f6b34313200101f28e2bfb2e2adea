@@ -1,0 +1,58 @@
+package JavaConceptsAndInterviewQues;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class HashMapDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		HashMap<Integer, String> hashMap = new HashMap<Integer, String>();
+		hashMap.put(1, "John");
+		hashMap.put(2, "Kevin");
+		hashMap.put(3, "Amy");
+		hashMap.put(4, "Linda");
+		hashMap.put(5, "Dewis");
+		hashMap.put(6, "Josh");
+		hashMap.put(7, "Kia");
+		System.out.println(hashMap);
+		
+		Map<Integer, String> dupMap = new HashMap<Integer, String>();
+		dupMap.putAll(hashMap);
+		System.out.println("Duplicate map "+dupMap);
+		
+		dupMap.clear();
+		System.out.println("Duplicate map "+dupMap);
+		
+		System.out.println("Does this map has key 4? "+hashMap.containsKey(4));
+		
+		System.out.println("Does this map has value Linda? "+hashMap.containsValue("Linda"));
+		
+		System.out.println("cloned map : "+hashMap.clone());
+		
+		System.out.println("Duplicate map is empty? "+dupMap.isEmpty());
+		
+		System.out.println("key set : "+hashMap.keySet());
+		
+		System.out.println("values : "+hashMap.values());
+		
+		System.out.println("particular value "+ hashMap.get(2));
+		
+		System.out.println("Entry set : "+hashMap.entrySet());
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

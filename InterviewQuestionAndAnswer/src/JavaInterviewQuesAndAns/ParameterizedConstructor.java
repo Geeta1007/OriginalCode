@@ -1,0 +1,26 @@
+package JavaInterviewQuesAndAns;
+
+public class ParameterizedConstructor {
+
+	String animal_name;
+	String animal_type;
+	
+	ParameterizedConstructor(String name, String type){
+		animal_name = name;
+		animal_type = type;
+	}
+	
+	public void sayAboutAnimal() {
+		System.out.println("Animal name is "+animal_name+" and type is "+animal_type);
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		ParameterizedConstructor animal = new ParameterizedConstructor("Duck", "Omnivores");
+		animal.sayAboutAnimal();
+		ParameterizedConstructor animal1 = new ParameterizedConstructor("Karadi", "Omnivores");
+		animal1.sayAboutAnimal();
+	}
+
+}

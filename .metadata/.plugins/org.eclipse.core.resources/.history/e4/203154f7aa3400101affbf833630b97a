@@ -1,0 +1,64 @@
+package InterviewPerspectiveSel;
+
+import java.time.Duration;
+
+import org.jspecify.annotations.Nullable;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class DragAndDrop {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.leafground.com/drag.xhtml");
+		Actions actions = new Actions(driver);
+		
+//        Draggable
+//		WebElement dragFrom = driver.findElement(By.xpath("//div[@id='form:conpnl']"));
+//		Point location = dragFrom.getLocation();
+//		int x = location.getX();
+//		int y = location.getY();
+//		System.out.println(x);
+//		System.out.println(y);
+//		actions.dragAndDropBy(dragFrom, 480, y).build().perform();
+
+//        Droppable
+//        WebElement from = driver.findElement(By.xpath("//div[@id='form:drag_content']"));
+//        WebElement to = driver.findElement(By.xpath("//div[@id='form:drop_content']"));
+
+//        actions.clickAndHold(from).moveToElement(to).build().perform();
+//        actions.dragAndDrop(from, to).build().perform();
+
+//        Draggable Columns
+//        WebElement fromCol = driver.findElement(By.xpath("//th[@id='form:j_idt94:j_idt97']/span"));
+//        WebElement toCol = driver.findElement(By.xpath("//th[@id='form:j_idt94:j_idt95']/span"));
+//        actions.dragAndDrop(fromCol, toCol).build().perform();
+
+//        Progress Bar
+//        WebElement barStart = driver.findElement(By.xpath("//button[@id='form:j_idt119']/span"));
+//        barStart.click();
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+//        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//span[@class='ui-growl-title']")));
+//        System.out.println(driver.findElement(By.xpath("//span[@class='ui-growl-title']")).getText());
+
+//        Range Slider
+		WebElement left1 = driver.findElement(By.xpath("//span[starts-with(@class,'ui-slider-handle')][1]"));
+		WebElement left2 = driver.findElement(By.xpath("//span[starts-with(@class,'ui-slider-handle')][2]"));
+		actions.dragAndDropBy(left1, -20, 0).build().perform();
+		actions.dragAndDropBy(left2, 10, 0).build().perform();
+
+		
+		
+
+	}
+
+}

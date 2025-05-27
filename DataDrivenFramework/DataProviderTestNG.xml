@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="login Suite">
+
+
+	<test name="login ">
+		<classes>
+			<class name="DataProviderClassExample.Login" />
+		</classes>
+	</test>
+	</suite>

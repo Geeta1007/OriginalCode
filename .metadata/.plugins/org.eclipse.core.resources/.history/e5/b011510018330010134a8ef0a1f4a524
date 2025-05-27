@@ -1,0 +1,24 @@
+package JavaInterviewQuesAndAns;
+
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class FileReadUsingFileInputStream {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+
+		String location = "UsingBufferedWriter.txt";
+		
+		FileInputStream fileInputStream = new FileInputStream(location);
+		int content;
+		while((content=fileInputStream.read())!=-1) {
+			System.out.println((char)content);
+		}
+		
+	}
+
+}

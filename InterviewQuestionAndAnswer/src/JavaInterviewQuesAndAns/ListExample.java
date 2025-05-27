@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 
 public class ListExample {
 
@@ -12,6 +13,7 @@ public class ListExample {
 
 		
 		List<String> arrayList = new ArrayList<String>();
+		
 		arrayList.add("Apple");
 		arrayList.add("mango");
 		arrayList.add("Gauva");
@@ -26,14 +28,26 @@ public class ListExample {
 		anotherList.addAll(arrayList);
 		anotherList.clear();
 		System.out.println(anotherList);
-		System.out.println(arrayList); 
+		System.out.println(arrayList); 		
 		
+		ListIterator<String> list_iterator = arrayList.listIterator();
+		while (list_iterator.hasNext()) {
+			System.out.println("ListIterator : "+list_iterator.next());
+		}
+		while (list_iterator.hasPrevious()) {
+			System.out.println("Previos ListIterator : "+list_iterator.previous());
+		}
 		
 		System.out.println("------------------------------------------");
 		Iterator<String> list1 = arrayList.iterator();
 		while (list1.hasNext()) {
 			System.out.println(list1.next());
-			
+		}	
+		
+		List heterogeneous = new ArrayList();
+		heterogeneous.add(1);
+		heterogeneous.add("Good");
+		System.out.println("heterogeneous : "+heterogeneous);
 //		============================================================================================================================================
 				
 		LinkedList<Integer> linkedList = new LinkedList<Integer>();
@@ -86,11 +100,7 @@ public class ListExample {
 		System.out.println(linkedList);
 
 		
-			
-		
-			
-		}
-		
+
 
 		
 	}

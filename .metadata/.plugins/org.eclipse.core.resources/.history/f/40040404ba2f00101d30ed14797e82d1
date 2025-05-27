@@ -1,0 +1,16 @@
+package JavaConceptsAndInterviewQues;
+
+public class ReverseString {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String name = "Kishore Kumar";
+		
+		StringBuffer buffer = new StringBuffer();
+		buffer.append(name);
+		
+		System.out.println(buffer.reverse());
+	}
+
+}

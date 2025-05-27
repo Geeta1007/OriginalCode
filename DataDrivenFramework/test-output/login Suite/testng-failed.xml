@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [login Suite]">
+  <test thread-count="5" name="login test cases(failed)">
+    <classes>
+      <class name="ParameterClassExample.BothIncorrect">
+        <methods>
+          <include name="BothIncorrectLogin"/>
+        </methods>
+      </class> <!-- ParameterClassExample.BothIncorrect -->
+      <class name="ParameterClassExample.BothCorrect">
+        <methods>
+          <include name="BothCorrectLogin"/>
+        </methods>
+      </class> <!-- ParameterClassExample.BothCorrect -->
+      <class name="ParameterClassExample.IncorrectPassword">
+        <methods>
+          <include name="IncorrectPasswordLogin"/>
+        </methods>
+      </class> <!-- ParameterClassExample.IncorrectPassword -->
+    </classes>
+  </test> <!-- login test cases(failed) -->
+</suite> <!-- Failed suite [login Suite] -->

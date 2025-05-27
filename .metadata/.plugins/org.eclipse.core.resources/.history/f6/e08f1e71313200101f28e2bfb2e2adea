@@ -1,0 +1,22 @@
+package JavaConceptsAndInterviewQues;
+
+public class LengthOfString {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String name = "Kishore kumar ";
+		
+		System.out.println(name.length());
+		
+		char[] charactor = name.toCharArray();
+		
+		int length=0;
+		for (char c : charactor) {
+			length++;
+		}
+		System.out.println(length);
+		
+	}
+
+}

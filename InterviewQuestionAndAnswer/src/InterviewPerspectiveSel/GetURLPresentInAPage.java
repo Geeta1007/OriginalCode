@@ -1,0 +1,62 @@
+package InterviewPerspectiveSel;
+
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.List;
+
+import org.jspecify.annotations.Nullable;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class GetURLPresentInAPage {
+
+	public static void main(String[] args) throws MalformedURLException, IOException {
+		// TODO Auto-generated method stub
+
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+		List<WebElement> totalLinks = driver.findElements(By.tagName("a"));
+		String links = null;
+		for (WebElement link : totalLinks) {
+			links = link.getDomProperty("href");
+//			System.out.println(links);
+		}
+		
+//		To get header links alone
+//		WebElement header = driver.findElement(By.xpath("//header"));
+//		List<WebElement> headerLinks = header.findElements(By.tagName("a"));
+//		String url = null;
+//		for (WebElement headURLs : headerLinks) {
+//			url = headURLs.getDomProperty("href");
+//			if(!(url==null)) {
+//				System.out.println(url);
+//			}
+//		}
+		
+//		To get footer links alone
+		List<WebElement> footerLinks = driver.findElements(By.xpath("//div[@id='gf-BIG']//a"));
+		String Furl = null;
+		int count=0;
+		for (WebElement headURLs : footerLinks) {
+			Furl = headURLs.getDomProperty("href");
+			if(!(Furl==null)) {
+				System.out.println(Furl);
+				count++;
+			}
+		}
+		System.out.println(count);
+		
+		HttpURLConnection connection = ( HttpURLConnection)new URL(Furl).openConnection();
+		connection.setRequestMethod("HEAD");
+		connection.connect();
+		System.out.println("Response code: " +connection.getResponseCode());
+		
+		
+		
+	}
+
+}

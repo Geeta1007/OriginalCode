@@ -1,0 +1,27 @@
+package JavaInterviewQuesAndAns;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class FileReadUsingBufferedReader {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+
+		String location = "UsingBufferedWriter.txt";
+	
+		FileReader fileReader = new FileReader(location);
+		BufferedReader bufferedReader = new BufferedReader(fileReader);
+//		bufferedReader.readLine();
+		String readLine;
+		
+		while((readLine = bufferedReader.readLine())!=null) {
+			System.out.println(readLine);
+		}
+		bufferedReader.close();
+	}
+
+}

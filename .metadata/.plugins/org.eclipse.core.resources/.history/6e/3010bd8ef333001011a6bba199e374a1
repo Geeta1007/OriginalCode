@@ -1,0 +1,53 @@
+package InterviewPerspectiveSel;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class RadioButton {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.leafground.com/radio.xhtml");
+//		driver.findElement(By.xpath("//h5[contains(text(),'Your most favorite browser')]/following-sibling::div//label[text()='Chrome']")).click();
+//		
+//		driver.findElement(By.xpath("//h5[contains(text(), 'UnSelectable')]/following-sibling::div//label[text()='Bengaluru']")).click();
+//		driver.findElement(By.xpath("//h5[contains(text(), 'UnSelectable')]/following-sibling::div//label[text()='Bengaluru']")).click();
+		
+//		WebElement chrome = driver.findElement(By.xpath("//h5[contains(text(), 'Find the default select radio button')]/following-sibling::div//div[contains(@class, 'ui-radiobutton-box')]//label[text()='Chrome']"));
+//		WebElement fireFox = driver.findElement(By.xpath("//h5[contains(text(), 'Find the default select radio button')]/following-sibling::div//label[text()='Firefox']"));
+//		WebElement safari = driver.findElement(By.xpath("//h5[contains(text(), 'Find the default select radio button')]/following-sibling::div//label[text()='Safari']"));
+//		WebElement edge = driver.findElement(By.xpath("//h5[contains(text(), 'Find the default select radio button')]/following-sibling::div//label[text()='Edge']"));
+		
+		List<WebElement> lists = driver.findElements(By.xpath("//h5[contains(text(), 'Find the default select radio button')]/following-sibling::div//div[contains(@class, 'ui-radiobutton-box')]"));
+		
+		for (WebElement list : lists) {
+			if(list.getDomAttribute("class").contains("ui-state-active")) {
+				String value = list.findElement(By.xpath("./following-sibling::label")).getText();
+				System.out.println(value);
+			}
+		}
+		
+		
+		
+//		if(chrome.getDomAttribute("class").contains("ui-state-active")) {
+//			System.out.println("Chrome is selected");
+//		}else if(fireFox.getDomAttribute("class").contains("ui-state-active")) {
+//			System.out.println("Firefox is selected");
+//		}
+//		else if(safari.getDomAttribute("class").contains("ui-state-active")) {
+//			System.out.println("Safari is selected");
+//		}
+//		else if(edge.getDomAttribute("class").contains("ui-state-active")){
+//			System.out.println("Edge is selected");
+//		}else {
+//		    System.out.println("No radio button is selected by default");
+//		}
+	}
+
+}

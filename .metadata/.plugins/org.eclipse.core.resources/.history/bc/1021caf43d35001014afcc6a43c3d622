@@ -1,0 +1,29 @@
+package InterviewPerspectiveSel;
+
+import org.jspecify.annotations.Nullable;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class HyperLinksExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.leafground.com/link.xhtml");
+		
+//		Go to Dashboard
+//		WebElement homePage = driver.findElement(By.linkText("Go to Dashboard"));
+//		homePage.click();
+//		driver.navigate().back();
+		
+//		Find the URL without clicking me.
+		WebElement withoutClicking = driver.findElement(By.partialLinkText("without clicking me."));
+		String where = withoutClicking.getDomAttribute("href");
+		System.out.println("This link is going to "+where);
+		
+	}
+
+}

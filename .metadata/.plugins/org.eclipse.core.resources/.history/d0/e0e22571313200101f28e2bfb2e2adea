@@ -1,0 +1,61 @@
+package JavaConceptsAndInterviewQues;
+
+import java.util.stream.IntStream;
+
+public class ArrayContainsElementOrNot {
+
+	int[] array = {1,6,4,2,3,7,8,0};
+	
+	int numberToFind = 30;
+	boolean found = false;
+	
+	public void usingForLoop() 
+	{
+		
+
+		for (int i = 0; i < array.length; i++) 
+		{
+			if (array[i] == numberToFind) 
+			{
+				found = true;
+				break;
+			}
+		}
+		System.out.println(found);
+	}
+
+	public void usingForEach()
+	{
+		for (int number : array) 
+		{
+			if(number==numberToFind)
+			{
+				found = true;
+				break;
+			}
+		} System.out.println(found);
+	}
+	
+	public void usingIntStream()
+	{
+		boolean found = IntStream.of(array).anyMatch(element-> element==numberToFind);
+		
+		if(found==true)
+		{
+			System.out.println("number is present");
+		}
+		else
+		{
+			System.out.println("number is not present");
+		}
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		ArrayContainsElementOrNot contains = new ArrayContainsElementOrNot();
+		contains.usingForLoop();
+		contains.usingForEach();
+		contains.usingIntStream();
+	}
+
+}

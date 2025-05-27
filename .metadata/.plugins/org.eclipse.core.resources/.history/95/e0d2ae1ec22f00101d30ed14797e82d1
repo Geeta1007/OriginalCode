@@ -1,0 +1,50 @@
+package JavaConceptsAndInterviewQues;
+
+public class SwapTwoNumbers {
+
+	public void usingThirdVariable()
+	{
+		int mySalary = 200;
+		int supSalary = 500;
+
+		System.out.println("Before swappping : "+ "mine " + mySalary + " SupSalary " +supSalary);
+		
+		int temp = mySalary;
+		mySalary = supSalary;
+		supSalary = temp;
+		
+		System.out.println("Before swappping : "+ "mine " + mySalary + " SupSalary " +supSalary);
+	}
+	
+	public void withoutUsingThirdVariable()
+	{
+		/*
+		 * first = first - second second = first + second first = second - first
+		 */
+		/*
+		 * first = first * second second = first / second first = second * first
+		 */
+		
+		int first = 50;
+		int second = 100;
+		
+		System.out.println("Before swappping : "+ "mine " + first + " SupSalary " +second);
+		
+		first = first - second; //-50
+		second = first + second; //50
+		first = second - first; //150
+		
+		System.out.println("Before swappping : "+ "mine " + first + " SupSalary " +second);
+
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		SwapTwoNumbers numbers = new SwapTwoNumbers();
+		numbers.usingThirdVariable();
+		numbers.withoutUsingThirdVariable();
+		
+	}
+
+}

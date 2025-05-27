@@ -1,0 +1,21 @@
+package JavaConceptsAndInterviewQues;
+
+public class SwapTwoNumbers {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int mySalary = 200;
+		int supSalary = 500;
+
+		System.out.println("Before swappping : "+ "mine " + mySalary + "SupSalary " +supSalary);
+		
+		int temp = mySalary;
+		mySalary = supSalary;
+		supSalary = temp;
+		
+		System.out.println("Before swappping : "+ "mine " + mySalary + "SupSalary " +supSalary);
+		
+	}
+
+}

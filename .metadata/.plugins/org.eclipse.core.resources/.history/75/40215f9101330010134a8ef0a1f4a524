@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="Suite">
+<listeners>
+	<listener name="InterviewPerspectiveSel.Transformer"></listener>
+</listeners>
+  <test thread-count="5" name="Test cases">
+    <classes>
+      <class name="InterviewPerspectiveSel.RerunFailedTestCase"/>
+    </classes>
+  </test> 
+</suite> 

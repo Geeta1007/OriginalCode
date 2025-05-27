@@ -1,0 +1,62 @@
+package InterviewPerspectiveSel;
+
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.AfterSuite;
+
+public class AnnotationDemo {
+  @Test
+  public void Ztest() {
+	  System.out.println("In Ztest");
+  }
+  @BeforeMethod
+  public void beforeMethod() {
+	  System.out.println("In BeforeMethod");
+  }
+
+  @Test
+  public void Atest() {
+	  System.out.println("In Atest");
+  }
+  @AfterMethod
+  public void afterMethod() {
+	  System.out.println("In AfterMethod");
+  }
+
+  @BeforeClass
+  public void beforeClass() {
+	  System.out.println("In BeforeClass");
+  }
+
+  @AfterClass
+  public void afterClass() {
+	  System.out.println("In AfterClass");
+  }
+
+  @BeforeTest
+  public void beforeTest() {
+	  System.out.println("In BeforeTest");
+  }
+
+  @AfterTest
+  public void afterTest() {
+	  System.out.println("In AfterTest");
+  }
+
+  @BeforeSuite
+  public void beforeSuite() {
+	  System.out.println("In BeforeSuite");
+  }
+
+  @AfterSuite
+  public void afterSuite() {
+	  System.out.println("In AfterSuite");
+  }
+
+}

@@ -1,0 +1,22 @@
+package JavaInterviewQuesAndAns;
+
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class FileWriteUsingFileOutputStream {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+
+		String location = "UsingFileOutputStream.txt";
+		String content = "Winter is coming..!!!";
+		
+		FileOutputStream fileOutputStream = new FileOutputStream(location);
+		fileOutputStream.write(content.getBytes());
+		fileOutputStream.close();
+		
+	}
+
+}

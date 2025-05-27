@@ -1,0 +1,111 @@
+package JavaInterviewQuesAndAns;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.ListIterator;
+
+public class ListExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		List<String> arrayList = new ArrayList<String>();
+		List<String> arrayList1 = new ArrayList<String>();
+		arrayList.add("Apple");
+		arrayList.add("mango");
+		arrayList.add("Gauva");
+		arrayList.add("Kiwi");
+		
+		System.out.println(arrayList);
+		arrayList.set(3, "Jackfruit");
+		arrayList.set(0, "Grapes");
+		System.out.println(arrayList);
+		
+		List<String> anotherList = new ArrayList<String>();
+		anotherList.addAll(arrayList);
+		anotherList.clear();
+		System.out.println(anotherList);
+		System.out.println(arrayList); 
+		anotherList=null;
+		System.out.println("anotherList is removed?" +arrayList1);
+		
+		
+		ListIterator<String> list_iterator = arrayList.listIterator();
+		while (list_iterator.hasNext()) {
+			System.out.println("ListIterator : "+list_iterator.next());
+		}
+		while (list_iterator.hasPrevious()) {
+			System.out.println("Previos ListIterator : "+list_iterator.previous());
+		}
+		
+		System.out.println("------------------------------------------");
+		Iterator<String> list1 = arrayList.iterator();
+		while (list1.hasNext()) {
+			System.out.println(list1.next());
+		}	
+		
+		List heterogeneous = new ArrayList();
+		heterogeneous.add(1);
+		heterogeneous.add("Good");
+		System.out.println("heterogeneous : "+heterogeneous);
+//		============================================================================================================================================
+				
+		LinkedList<Integer> linkedList = new LinkedList<Integer>();
+		linkedList.add(2);
+		linkedList.add(3);
+		linkedList.add(4);
+		linkedList.add(5);
+		linkedList.add(6);
+		linkedList.add(7);
+		linkedList.add(8);
+		linkedList.add(9);
+		linkedList.add(9);
+		linkedList.add(10);
+		linkedList.add(10);
+
+		System.out.println("likedlist full list "+linkedList);
+		
+		linkedList.addFirst(1);
+		System.out.println("added first data "+linkedList);
+		
+		linkedList.addLast(11);
+		System.out.println("added last data "+linkedList);
+		
+		linkedList.add(5, 10); // adding 10 in 5th position
+		System.out.println("added last data "+linkedList);
+		
+		System.out.println("getting first position value "+linkedList.getFirst());
+		System.out.println("getting first position value "+linkedList.get(0));
+		
+		System.out.println("removing first position value "+linkedList.removeFirst());
+		System.out.println(linkedList);
+		System.out.println("removing last position value "+linkedList.removeLast());
+		System.out.println(linkedList);
+		System.out.println("removing first position value "+linkedList.remove(0));
+		System.out.println(linkedList);
+		System.out.println("removing first position value "+linkedList.remove()); // this will remove first position value
+		System.out.println(linkedList);
+		
+		System.out.println("removing first position value "+linkedList.poll());  //delete first element in the list
+		System.out.println(linkedList);
+		System.out.println("removing first position value "+linkedList.pollFirst());
+		System.out.println(linkedList);
+		System.out.println("removing last position value "+linkedList.pollLast());
+		System.out.println(linkedList);
+
+		System.out.println("removing first occurance of 9 "+linkedList.removeFirstOccurrence(9));
+		System.out.println(linkedList);
+
+		System.out.println("removing last occurance of 10 "+linkedList.removeLastOccurrence(10));
+		System.out.println(linkedList);
+
+		
+
+
+		
+	}
+
+}

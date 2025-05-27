@@ -1,0 +1,63 @@
+package InterviewPerspectiveSel;
+
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class BrokenImage {
+
+	// NOT WORKING==========================================================
+    public static void main(String[] args) throws IOException {
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://the-internet.herokuapp.com/broken_images");
+
+        String baseUrl = driver.getCurrentUrl(); // Get the base URL of the page
+        List<WebElement> images = driver.findElements(By.tagName("img"));
+
+        for (WebElement image : images) {
+            String imageSrc = image.getDomAttribute("src");
+
+            // Validate imageSrc
+            if (imageSrc == null || imageSrc.isEmpty()) {
+                System.err.println("Image source is null or empty");
+                continue;
+            }
+
+            try {
+                // Resolve relative URL to absolute URL
+                URL url = new URL(new URL(baseUrl), imageSrc);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setConnectTimeout(5000);
+                httpURLConnection.connect();
+
+                if (httpURLConnection.getResponseCode() != 200) {
+                    System.err.println(imageSrc + " >> HTTP Error: " + httpURLConnection.getResponseCode() + " >> "
+                            + httpURLConnection.getResponseMessage());
+                } else {
+                    // Check naturalWidth using JavaScript
+                    JavascriptExecutor js = (JavascriptExecutor) driver;
+                    Long naturalWidth = (Long) js.executeScript("return arguments[0].naturalWidth;", image);
+
+                    if (naturalWidth == 0) {
+                        System.err.println(imageSrc + " >> Image is broken (naturalWidth=0)");
+                    } else {
+                        System.out.println(imageSrc + " >> Image is valid");
+                    }
+                }
+                httpURLConnection.disconnect();
+            } catch (MalformedURLException e) {
+                System.err.println("Invalid URL: " + imageSrc);
+            }
+        }
+
+        driver.quit();
+    }
+}

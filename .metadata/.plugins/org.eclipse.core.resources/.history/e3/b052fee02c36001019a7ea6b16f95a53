@@ -1,0 +1,13 @@
+package Log4JExample;
+
+public class BasicConfiguratorExample {
+
+	
+	static Logger logger
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,18 @@
+package JavaInterviewQuesAndAns;
+
+public class Dummy extends NoArgumentConstructor{
+
+
+	public void sayAbout(String employeeName) {
+		
+		System.out.println("Animal name is ");
+	}
+		
+		public static void main(String[] args) {
+			// TODO Auto-generated method stub
+
+			Dummy dummy = new Dummy();
+			dummy.sayAbout(null);
+		}
+
+	}

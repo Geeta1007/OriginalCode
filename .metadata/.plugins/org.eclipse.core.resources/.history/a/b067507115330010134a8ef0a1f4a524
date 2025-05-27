@@ -1,0 +1,19 @@
+package JavaInterviewQuesAndAns;
+
+import java.util.Scanner;
+
+public class Dummy {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String location = "UsingBufferedWriter.txt";
+		
+		Scanner scanner = new Scanner(location); 
+
+            while (scanner.hasNextLine()) {
+                System.out.println(scanner.nextLine());
+            }
+	}
+
+}

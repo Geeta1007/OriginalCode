@@ -21,14 +21,14 @@ public class PrintFloydTriangle {
 //		****
 //		*****
 //		
-//		for(row=0;numberOfLines>row; row++)
-//		{
-//			for(column =0;column<=row; column++ )
-//			{
-//				System.out.print("*");
-//			}
-//			System.out.println();
-//		}
+		for(row=0;numberOfLines>row; row++)
+		{
+			for(column =0;column<=row; column++ )
+			{
+				System.out.print("*");
+			}
+			System.out.println();
+		}
 //	-----------------------------------------------------------------------------------------------------------------	
 //		*****
 //		****

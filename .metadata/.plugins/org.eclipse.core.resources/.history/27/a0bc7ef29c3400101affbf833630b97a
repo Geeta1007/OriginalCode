@@ -1,0 +1,34 @@
+package InterviewPerspectiveSel;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FramesExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		WebDriver driver = new ChromeDriver();
+        driver.get("https://www.leafground.com/frame.xhtml");
+        
+//        Click Me (Inside frame)
+        driver.switchTo().frame(0);
+        WebElement button1 = driver.findElement(By.xpath("//button[@id='Click']"));
+        button1.click();
+        System.out.println(button1.getText());
+        
+//        to comback origial frame
+        driver.switchTo().defaultContent();
+        
+//        Click Me (Inside Nested frame)
+        driver.switchTo().frame(1);
+        driver.switchTo().frame(0);
+        WebElement button2 = driver.findElement(By.xpath("//button[@id='Click']"));
+        button2.click();
+        System.out.println(button2.getText());
+		
+	}
+
+}

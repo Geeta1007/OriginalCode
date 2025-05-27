@@ -1,0 +1,31 @@
+package InterviewPerspectiveSel;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+
+public class SwitchToActiveElement {
+
+	static WebElement q;
+//	static WebElement name;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.google.com");
+//		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+		
+//		using active element--------------------------------------
+//		driver.switchTo().activeElement().sendKeys("hello \n");
+		
+//		using page factory---------------------------------
+		PageFactory.initElements(driver, SwitchToActiveElement.class);
+		
+		q.sendKeys("hello \n");
+//		name.sendKeys("hello");
+		
+	}
+
+}

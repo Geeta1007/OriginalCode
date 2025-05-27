@@ -1,0 +1,21 @@
+package InterviewPerspectiveSel;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class RadioButton {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.leafground.com/radio.xhtml");
+		driver.findElement(By.xpath("//div[@class='card']/h5[contains(text(),'Your most favorite browser')]/div/div/table/tbody/tr/td/label[text()='Chrome']")).click();
+		
+		
+		
+		
+	}
+
+}

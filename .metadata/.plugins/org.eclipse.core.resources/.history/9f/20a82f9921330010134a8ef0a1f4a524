@@ -1,0 +1,29 @@
+package JavaInterviewQuesAndAns;
+
+public class SwitchCase {
+
+	String hero = "Captain America";
+	
+	public void heroOrNot() {
+		switch (hero) {
+		case "Iron man":
+			System.out.println("Iron man is a super hero");
+		case "Super man":
+			System.out.println("Super man is a super hero");
+		case "Bat man":
+			System.out.println("Bat man is a super hero");
+		default:
+			System.out.println(hero+" is a super hero");
+		}
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		SwitchCase switchCase = new SwitchCase();
+		switchCase.heroOrNot();
+		
+	}
+
+}

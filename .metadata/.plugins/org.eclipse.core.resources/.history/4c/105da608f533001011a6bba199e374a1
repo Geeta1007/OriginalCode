@@ -1,0 +1,42 @@
+package InterviewPerspectiveSel;
+
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class RadioButton {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.leafground.com/radio.xhtml");
+//		driver.findElement(By.xpath("//h5[contains(text(),'Your most favorite browser')]/following-sibling::div//label[text()='Chrome']")).click();
+//		
+//		driver.findElement(By.xpath("//h5[contains(text(), 'UnSelectable')]/following-sibling::div//label[text()='Bengaluru']")).click();
+//		driver.findElement(By.xpath("//h5[contains(text(), 'UnSelectable')]/following-sibling::div//label[text()='Bengaluru']")).click();
+		
+		
+//		Find the default select radio button************************************
+//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//h5[contains(text(), 'Find the default select radio button')]")));
+		List<WebElement> lists = driver.findElements(By.xpath("//h5[contains(text(), 'Find the default select radio button')]/following-sibling::div//div[contains(@class, 'ui-radiobutton-box')]"));
+		
+		for (WebElement list : lists) {
+			if(list.getDomAttribute("class").contains("ui-state-active")) {
+				String value = list.findElement(By.xpath("./following::label")).getText();
+				System.out.println(value);
+			}
+		}
+		
+	
+
+	}
+
+}

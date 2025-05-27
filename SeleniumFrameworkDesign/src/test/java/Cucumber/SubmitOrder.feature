@@ -5,7 +5,7 @@ Feature: Purchase the order from Ecommerce website
   Background:
   Given I landed on Ecommerce page
 
-  @Regression
+  @RegressionCucumber
   Scenario Outline: Positive test of submitting the order
     Given Logged in with username <name> and password <password>
     When I add product <productName> to the cart

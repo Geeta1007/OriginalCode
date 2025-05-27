@@ -1,0 +1,23 @@
+package JavaInterviewQuesAndAns;
+
+public class Dummy extends ParameterizedConstructor{
+
+	Dummy(){
+		super("hello", "god");
+		System.out.println("Animal name is ");
+	}
+
+	public void sayAbout(String employeeName) {
+		
+		
+	}
+		
+		public static void main(String[] args) {
+			// TODO Auto-generated method stub
+
+			ParameterizedConstructor constructor = new Dummy();
+			constructor.sayAboutAnimal();
+		
+		}
+
+	}

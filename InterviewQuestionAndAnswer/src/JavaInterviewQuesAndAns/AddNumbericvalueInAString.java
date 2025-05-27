@@ -5,7 +5,7 @@ public class AddNumbericvalueInAString {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		String input = "Kishor5ekumar23";
+		String input = "Kishorek5umar23";
 		
 		int sum=0;
 		
@@ -15,7 +15,7 @@ public class AddNumbericvalueInAString {
 			
 			if(Character.isDigit(character))
 			{
-				sum=sum+input.charAt(i);
+				sum=sum+Character.getNumericValue(character);
 			}
 		}
 		System.out.println(sum);

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="login Suite">
+
+
+	<test name="login test cases BothCorrect">
+	<parameter name="username" value="Geeta@gmail.com"></parameter>
+	<parameter name="password" value="Pass@1007"></parameter>
+		<classes>
+			<class name="ParameterClassExample.BothCorrect" />
+		</classes>
+	</test>
+	<test name="login test cases BothIncorrect">
+		<parameter name="username" value="Geetha@gmail.com"></parameter>
+	<parameter name="password" value="Passs@1007"></parameter>
+		<classes>
+			<class name="ParameterClassExample.BothIncorrect" />
+		</classes>
+	</test>
+	<test name="login test cases Incorrectpassword">
+		<parameter name="username" value="Geeta@gmail.com"></parameter>
+	<parameter name="password" value="Passs@1007"></parameter>
+		<classes>
+			<class name="ParameterClassExample.IncorrectPassword" />
+		</classes>
+	</test>
+	<test name="login test cases IncorrectUsername">
+		<parameter name="username" value="Geetha@gmail.com"></parameter>
+	<parameter name="password" value="Pass@1007"></parameter>
+		<classes>
+			<class name="ParameterClassExample.IncorrectUsername" />
+		</classes>
+	</test>
+
+</suite>

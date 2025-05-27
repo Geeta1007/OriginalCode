@@ -1,0 +1,107 @@
+package InterviewPerspectiveSel;
+
+import org.jspecify.annotations.Nullable;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import static org.openqa.selenium.support.locators.RelativeLocator.*;
+
+
+import java.time.Duration;
+import java.util.Random;
+
+public class MiscInterviewQues {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+
+//		 Checking tab enabled or not
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.leafground.com/input.xhtml");
+		/*driver.findElement(By.id("j_idt88:j_idt91")).sendKeys(" India");
+		boolean enabled= driver.findElement(By.id("j_idt88:j_idt93")).isEnabled();
+		System.out.println(enabled);
+		
+//		Retrieve the sentence present in the box
+		System.out.println(driver.findElement(By.id("j_idt88:j_idt97")).getDomAttribute("value"));
+		
+//		Type email and Tab. Confirm control moved to next element.
+		driver.findElement(By.id("j_idt88:j_idt99")).sendKeys("test@gmail.com"+Keys.TAB);
+		String verifyText = driver.findElement(By.id("j_idt88:j_idt101")).getDomAttribute("placeholder");
+		System.out.println(verifyText);
+		Assert.assertEquals(verifyText, "About yourself");
+		
+//		Just Press Enter and confirm error message*
+		driver.findElement(By.name("j_idt106:thisform:age")).sendKeys(Keys.ENTER);
+		Thread.sleep(2000);
+		String errorMessage = driver.findElement(By.xpath("//span[text()='Age is mandatory']")).getText();
+		System.out.println(errorMessage);
+		Assert.assertEquals(errorMessage, "Age is mandatory");
+
+//		Click and Confirm Label Position Changes*****************
+		WebElement checkBox = driver.findElement(By.id("j_idt106:float-input"));
+		checkBox.click();
+		Thread.sleep(2000);
+		String usernameText = driver.findElement(with(By.tagName("label")).above(checkBox)).getText();
+		System.out.println(usernameText);
+		
+//		Type your name and choose the third option
+		driver.findElement(By.id("j_idt106:auto-complete_input")).sendKeys("gee");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//ul[contains(@class, 'ui-widget-content')]/li[3]")).click();
+		
+//		Type number and spin to confirm value changed
+		WebElement spinBox = driver.findElement(By.id("j_idt106:j_idt118_input"));
+		spinBox.sendKeys("5");
+		driver.findElement(By.xpath("//span[@id='j_idt106:j_idt118']/a[1]")).click();
+		String number = spinBox.getDomAttribute("aria-valuenow");
+		System.out.println(number);
+		Assert.assertNotEquals(number, "5");
+		
+//		Type random number (1-100) and confirm slider moves correctly
+		WebElement actualBox = driver.findElement(By.id("j_idt106:slider"));
+		int randomValue = new Random().nextInt(100) +1;
+		actualBox.sendKeys(String.valueOf(randomValue));
+		WebElement slider = driver.findElement(By.xpath("//div[@id='j_idt106:j_idt120']/div"));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		wait.until(WebDriver -> slider.getDomAttribute("style").contains(String.valueOf(randomValue)));
+		String styleAttribute = slider.getDomAttribute("style");
+		String expectedNumber = styleAttribute.replaceAll("[^0-9]", "");
+		if(String.valueOf(randomValue).equals(expectedNumber)) {
+			System.out.println("PASS: Slider moved correctly to " + randomValue);
+        } else {
+            System.out.println("FAIL: Slider value is " + randomValue + ", expected " + expectedNumber);
+        }
+
+//		Click and Confirm Keyboard appears
+		driver.findElement(By.id("j_idt106:j_idt122")).click();
+		Thread.sleep(2000);
+		By keyboardLocator = By.xpath("//div[contains(@style, 'display: block;')]");
+		wait.until(ExpectedConditions.presenceOfElementLocated(keyboardLocator));
+		System.out.println("keyboard is visible");*/
+		
+		
+//		Find position of box(x,y)
+		WebElement box = driver.findElement(By.id("j_idt88:name"));
+		
+		Point xypoint = box.getLocation();
+		int xValue = xypoint.getX();
+		int yValue = xypoint.getY();
+		System.out.println("Xvalue is : "+xValue+ " and YValue is : "+ yValue);
+		
+		String color = box.getCssValue("background-color");
+		System.out.println("color is :"+color);
+		
+		int height = box.getSize().getHeight();
+		int width = box.getSize().getWidth();
+		System.out.println("height is: "+height + " width is : "+width);
+		
+	}
+
+}

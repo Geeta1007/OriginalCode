@@ -1,0 +1,18 @@
+package JavaInterviewQuesAndAns;
+
+import java.io.FileWriter;
+
+public class UsingBufferedWriter {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String location = "UsingBufferedWriter.txt";
+		String content = "Change is inevitable";
+		
+		FileWriter fileWriter = new FileWriter(location);
+		fileWriter.write(content);
+		
+	}
+
+}

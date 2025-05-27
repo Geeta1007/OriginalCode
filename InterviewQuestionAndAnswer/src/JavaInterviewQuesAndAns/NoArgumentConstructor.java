@@ -1,0 +1,22 @@
+package JavaInterviewQuesAndAns;
+
+public class NoArgumentConstructor {
+
+	String employeeName;
+	int employeeId;
+	
+	NoArgumentConstructor(){
+		employeeName = "Suresh";
+		employeeId=1;
+		System.out.println("Employee object is created");
+	}
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		NoArgumentConstructor constructor = new NoArgumentConstructor();
+		
+	}
+
+}

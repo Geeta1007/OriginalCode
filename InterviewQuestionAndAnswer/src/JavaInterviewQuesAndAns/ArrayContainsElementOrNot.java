@@ -6,7 +6,7 @@ public class ArrayContainsElementOrNot {
 
 	int[] array = {1,6,4,2,3,7,8,0};
 	
-	int numberToFind = 30;
+	int numberToFind = 3;
 	boolean found = false;
 	
 	public void usingForLoop() 

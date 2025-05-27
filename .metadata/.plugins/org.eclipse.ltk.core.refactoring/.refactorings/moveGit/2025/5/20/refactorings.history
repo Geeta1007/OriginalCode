@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Chumma.java&apos; to &apos;chumma/src/chumma&apos;&#x0D;&#x0A;- Original project: &apos;moveGit&apos;&#x0D;&#x0A;- Destination element: &apos;chumma/src/chumma&apos;&#x0D;&#x0A;- Original element: &apos;moveGit.Chumma.java&apos;" description="Copy compilation unit" destination="=chumma/src&lt;chumma" element1="/src&lt;moveGit{Chumma.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1747395911684" units="1" version="1.0"/>
+</session>

@@ -1,0 +1,19 @@
+package InterviewPerspectiveSel;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Dummy {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.leafground.com/input.xhtml");
+		driver.findElement(By.id("j_idt88:j_idt91")).sendKeys(" India");
+		boolean enabled= driver.findElement(By.id("j_idt88:j_idt93")).isEnabled();
+		System.out.println(enabled);
+	}
+
+}
