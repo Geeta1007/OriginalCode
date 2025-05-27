@@ -44,6 +44,7 @@ public class AlertsHandling {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//div[@id='j_idt88:j_idt112']/div/a[2]")).click();
 		
+		System.out.println("=================================================================");
 	}
 
 }
